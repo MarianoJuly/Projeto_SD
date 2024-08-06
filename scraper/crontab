@@ -1,0 +1,9 @@
+# Definição de ambiente para garantir que o cron use o shell correto e o PATH apropriado
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Executar o script scraper.sh todos os dias às 3h00 da manhã
+0 3 * * * /resgatar/scraper.sh >> /var/log/cron.log 2>&1
+
+# Executar o script clean.py todos os dias às 3h15 da manhã
+15 3 * * * /usr/bin/python3 /resgatar/clean.py >> /var/log/cron.log 2>&1
