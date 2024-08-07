@@ -23,4 +23,4 @@ EXPOSE $PORT
 
 # Comando para iniciar o servidor Node.js
 #Provavel erro mds
-CMD ["node", "./Controller/atletas_controller.js"]
+CMD ["node", "./Main/atletas_controller.js"]

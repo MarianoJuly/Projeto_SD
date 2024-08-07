@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Evento</title>
+    <title>Cadastro de Atleta</title>
     <link rel="stylesheet" href="styles_forms.css">
 </head>
 <body>
     <div class="container">
-        <h1>Cadastro de Evento</h1>
+        <h1>Cadastro de Atleta</h1>
         <form id="eventForm">
-            <label for="eventName">Nome do Evento:</label>
+            <label for="eventName">Nome do Atleta:</label>
             <input type="text" id="eventName" name="eventName" required>
             
-            <label for="eventDate">Data do Evento:</label>
+            <label for="eventDate">Periodo do evento:</label>
             <input type="date" id="eventDate" name="eventDate" required>
             
-            <label for="eventLocation">Local do Evento:</label>
+            <label for="eventLocation">Modalidade Olimpica:</label>
             <input type="text" id="eventLocation" name="eventLocation" required>
             
-            <label for="organizerName">Nome do Organizador:</label>
+            <label for="organizerName">Estação Olimpica:</label>
             <input type="text" id="organizerName" name="organizerName" required>
             
-            <label for="organizerEmail">Email do Organizador:</label>
-            <input type="email" id="organizerEmail" name="organizerEmail" required>
+            <label for="organizerEmail">Ouros:</label>
+            <input type="number" id="organizerEmail" name="organizerEmail" required>
+            
+            <label for="organizerEmail">Pratas:</label>
+            <input type="number" id="organizerEmail" name="organizerEmail" required>
+            
+            <label for="organizerEmail">Bronzes:</label>
+            <input type="number" id="organizerEmail" name="organizerEmail" required>
             
             <button type="submit">Cadastrar</button>
         </form>
