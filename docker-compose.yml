@@ -4,6 +4,7 @@ services:
   scrapper-app: 
     build: ./scraper
     container_name: scraper-app
+    # image: juliomarciano/scraper-app:v1.0
     volumes:
       - ./scraper:/resgatar
     networks:
@@ -12,10 +13,11 @@ services:
   node-app: 
     build: ./node_server
     container_name: node-app
+    # image: juliomarciano/node-app:v3.0
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/src
+      - ./src:/node_server/src
     networks:
       - rede-projeto
 

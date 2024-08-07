@@ -1,6 +1,6 @@
 Requisitos do Sistema
 
-1. Scrape usando Bash para download – 10pts
+1. Scrape usando Bash para download – 10pts 
 
    - O sistema deve permitir o download de dados usando scripts Bash para realizar scraping.
 

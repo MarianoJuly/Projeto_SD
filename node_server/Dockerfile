@@ -17,10 +17,11 @@ ENV PORT=3000
 
 # Instalar dependências do Node.js
 RUN npm install
+# RUN npm install nodemailer
 
 # Expor a porta que o servidor utilizará
 EXPOSE $PORT
 
 # Comando para iniciar o servidor Node.js
 #Provavel erro mds
-CMD ["node", "./Main/atletas_controller.js"]
+CMD ["node", "./Main/app.js"]
