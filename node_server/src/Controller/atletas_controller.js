@@ -1,7 +1,9 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
+const port = process.env.PORT || 3000;
 
 app.post('/atletas', (req, res) => {
   const dataset = req.body;
@@ -10,6 +12,12 @@ app.post('/atletas', (req, res) => {
   res.status(200).send('Dataset recebido com sucesso');
 });
 
-const PORT = process.env.PORT || 3000;
+app.use(express.static(path.join(__dirname, '../Front')));
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Front/forms.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});

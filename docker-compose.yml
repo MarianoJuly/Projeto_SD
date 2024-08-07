@@ -1,0 +1,25 @@
+version: '3'
+services:
+
+  scrapper-app: 
+    build: ./scraper
+    container_name: scraper-app
+    volumes:
+      - ./scraper:/resgatar
+    networks:
+      - rede-projeto
+
+  node-app: 
+    build: ./node_server
+    container_name: node-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/src
+    networks:
+      - rede-projeto
+
+networks:
+  rede-projeto:
+    driver: bridge
+
