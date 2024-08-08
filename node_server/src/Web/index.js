@@ -6,10 +6,13 @@ document.getElementById('eventForm').addEventListener('submit', function(event) 
     event.preventDefault(); // Evita o envio do formulário
 
     let evento = {
-        nome : document.getElementById('eventName').value,
-        data : document.getElementById('eventDate').value,
-        localizacao : document.getElementById('eventLocation').value,
-        nome_organizador : document.getElementById('organizerName').value,
+        nomeAtleta : document.getElementById('athleteName').value,
+        periodoAtividade : document.getElementById('eventDate').value,
+        modalidadeOlimpica : document.getElementById('modality').value,
+        estacaoOlimpica : document.getElementById('season').value,
+        ouros : document.getElementById('gold').value,
+        pratas : document.getElementById('silver').value,
+        bronze : document.getElementById('bronze').value,
         organizador_email : document.getElementById('organizerEmail').value
     };
     
