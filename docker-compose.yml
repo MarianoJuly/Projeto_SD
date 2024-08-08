@@ -4,6 +4,7 @@ services:
   scrapper-app: 
     build: ./scraper
     container_name: scraper-app
+    restart: always
     # image: juliomarciano/scraper-app:v1.0
     volumes:
       - ./scraper:/resgatar
@@ -13,6 +14,7 @@ services:
   node-app: 
     build: ./node_server
     container_name: node-app
+    restart: always
     # image: juliomarciano/node-app:v3.0
     ports:
       - "3000:3000"

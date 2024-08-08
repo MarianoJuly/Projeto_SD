@@ -8,18 +8,23 @@ const port = process.env.PORT || 3000;
 const data = [];
 
 app.post('/atletas', (req, res) => {
-  data = req.body;
-  console.log('Dataset recebido:', dataset);
-  res.status(200).send('Dataset recebido com sucesso');
+    const dataset = req.body;  // Recebendo os dados do corpo da requisição
+    dataset.array.forEach(element => {
+        data.push(novoAtleta(element));
+    });;  // Adicionando ao array `data`
+    res.status(200).send('Dataset recebido com sucesso');
 });
 
 // Criar um metodo que envia email
-app.post('/novo_atleta', (req, res) => {
-    var novo = novoAtleta(req.body);
-    data.push(novo)
-    email.sendEmail(req.body.email, novo);
-    // Salvar ou processar o dataset aqui
-    res.status(200).send('Dataset recebido com sucesso');
+app.post('/notify', (req, res) => {
+    console.log(req.body)
+    const novo = novoAtleta(req.body);
+    email.sendEmail(req.body.organizador_email, novo)
+    .then(() => res.status(200).send('Novo atleta registrado e email enviado com sucesso'))
+    .catch((err) => {
+      console.error('Erro ao enviar o email:', err);
+      res.status(500).send('Erro ao registrar novo atleta ou enviar email');
+    });
 });
 
 app.use(express.static(path.join(__dirname, '../Web')));
@@ -34,7 +39,7 @@ app.listen(port, () => {
 
 function novoAtleta(atletaRepo){
     var atleta = {
-        nome : atletaRepo.nome,
+        nome : atletaRepo.nomeAtleta,
         periodoAtividade : atletaRepo.periodoAtividade,
         modalidadeOlimpica : atletaRepo.modalidadeOlimpica,
         estacaoOlimpica : atletaRepo.estacaoOlimpica,

@@ -27,7 +27,7 @@ document.getElementById('eventForm').addEventListener('submit', function(event) 
     }
 
     // Enviar os dados para o servidor
-    fetch('http://localhost:3000/novo_atleta', {
+    fetch('http://localhost:3000/notify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

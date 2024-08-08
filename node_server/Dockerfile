@@ -17,7 +17,7 @@ ENV PORT=3000
 
 # Instalar dependências do Node.js
 RUN npm install
-# RUN npm install nodemailer
+RUN npm install nodemailer
 
 # Expor a porta que o servidor utilizará
 EXPOSE $PORT
