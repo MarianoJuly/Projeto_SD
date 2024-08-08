@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // Use `true` para porta 465, `false` para todas as outras portas
   auth: {
-    user: "maddison53@ethereal.email",
+    user: "botzimmariano@gmail.com",
     pass: "jn7jnAPss4f63QBp6D",
   },
 });
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 async function sendEmail(emailUser, atleta) {
   // Enviar email com o objeto de transporte definido
   const info = await transporter.sendMail({
-    from: '"Info Atletas 🥇" <maddison53@ethereal.email>', // endereço do remetente
+    from: '"Info Atletas 🥇" <botzimmariano@gmail.com>', // endereço do remetente
     to: `${emailUser}`, // destinatário
     subject: "Registro de novo atleta", // linha do assunto
     text: `Novo atleta registrado: ${JSON.stringify(atleta)}`, // corpo de texto simples
