@@ -5,16 +5,10 @@ FROM python:3.12-slim
 WORKDIR /scraper
 RUN apt-get update && apt-get install -y nano cron bash wget && rm -rf /var/lib/apt/lists/*
 
-# Copiar os arquivos locais para o diretório de trabalho do container
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
 # Copie os scripts para o container
-COPY scraper.sh /scraper/scraper.sh
-COPY clean.py /scraper/clean.py
+COPY scraper /scraper/
 
-# Adicione o arquivo crontab ao container
-COPY crontab /etc/cron.d/scraping_cron
+RUN pip install -r requirements.txt
 
 # Dê permissão para os scripts e para o arquivo crontab
 RUN chmod +x /scraper/scraper.sh \
