@@ -2,14 +2,11 @@
 FROM node:latest
 
 # Definir o diretório de trabalho dentro do container
-WORKDIR /src
-RUN apt-get update && apt-get install -y git
+WORKDIR /node_server
+RUN apt-get update && apt-get install -y git net-tools curl
 
 # Copiar os arquivos locais para o diretório de trabalho do container
-COPY src /src/
-
-# Copiar o restante dos arquivos do projeto para o diretório de trabalho do container
-COPY package*.json ./
+COPY node_server /node_server/
 
 # Define uma váriavel de ambiente, nesse caso a porta
 # Fazendo isso podemos ler o valor da porta no nosso arquivo app.js utilizando process.env.PORT
@@ -24,4 +21,4 @@ EXPOSE $PORT
 
 # Comando para iniciar o servidor Node.js
 #Provavel erro mds
-CMD ["node", "./Main/app.js"]
+CMD ["node", "./src/Main/app.js"]

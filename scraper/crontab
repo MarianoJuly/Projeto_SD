@@ -2,9 +2,9 @@
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-# Executar o script scraper.sh todos os dias às 3h00 da manhã
-0 * * * * /resgatar/scraper.sh >> /var/log/cron.log 2>&1
+# Executar o script scraper.sh toda vez a cada hora
+0 * * * * /scraper/scraper.sh >> /var/log/cron.log 2>&1
 
-# Executar o script clean.py todos os dias às 3h15 da manhã
-15 * * * * /usr/bin/python3 /resgatar/clean.py >> /var/log/cron.log 2>&1
+# Executar o script clean.py cada hora e 15
+15 * * * * /usr/bin/python3 /scraper/clean.py >> /var/log/cron.log 2>&1
 

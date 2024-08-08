@@ -8,8 +8,8 @@ const port = process.env.PORT || 3000;
 const data = [];
 
 app.post('/atletas', (req, res) => {
-    const dataset = req.body;  // Recebendo os dados do corpo da requisição
-    dataset.array.forEach(element => {
+    const dataset = req.body.data;  // Recebendo os dados do corpo da requisição
+    dataset.forEach(element => {
         data.push(novoAtleta(element));
     });;  // Adicionando ao array `data`
     res.status(200).send('Dataset recebido com sucesso');

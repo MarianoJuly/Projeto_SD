@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 input_file = 'atletas.html'
 
 # URL do node
-url = 'http://node-server:4000/atletas'
+url = 'http://node-app:3000/atletas'
 
 # Ler o conteúdo do arquivo HTML baixado
 with open(input_file, 'r', encoding='utf-8') as file:
