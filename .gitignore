@@ -1,3 +1,2 @@
 # Ignore changes in email module
-./src/Main/email.js
 node_server/src/Main/email.js
