@@ -1,0 +1,2 @@
+# Ignore changes in email module
+./src/Main/email.js
