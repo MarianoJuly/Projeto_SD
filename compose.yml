@@ -18,7 +18,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/node_server/src
+      - ./node_server:/node_server
     networks:
       - rede-projeto
 

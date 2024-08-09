@@ -1,23 +1,21 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
-  secure: false, // Use `true` para porta 465, `false` para todas as outras portas
+  service: 'gmail',
   auth: {
     user: "botzimmariano@gmail.com",
-    pass: "jn7jnAPss4f63QBp6D",
+    pass: "kwym vvtf kxrr bccu",
   },
 });
 
 async function sendEmail(emailUser, atleta) {
   // Enviar email com o objeto de transporte definido
   const info = await transporter.sendMail({
-    from: '"Info Atletas 🥇" <botzimmariano@gmail.com>', // endereço do remetente
-    to: `${emailUser}`, // destinatário
+    from: "botzimmariano@gmail.com", // endereço do remetente
+    to: emailUser, // destinatário
     subject: "Registro de novo atleta", // linha do assunto
     text: `Novo atleta registrado: ${JSON.stringify(atleta)}`, // corpo de texto simples
-    html: `<b>Novo atleta registrado:</b><pre>${JSON.stringify(atleta, null, 2)}</pre>`, // corpo em HTML
+    html: `<b>Detalhes do atleta:</b><br>${JSON.stringify(atleta)}`,
   });
 
   console.log("Message sent: %s", info.messageId);
@@ -26,5 +24,3 @@ async function sendEmail(emailUser, atleta) {
 module.exports = {
   sendEmail
 };
-
-teste
