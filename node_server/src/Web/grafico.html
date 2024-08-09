@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Medalhas dos Atletas</title>
+    <link rel="stylesheet" href="styles_forms.css">
+    <!-- Incluindo Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Gráfico de Medalhas dos Atletas</h2>
+    <canvas id="medalsChart" width="400" height="200"></canvas>
+
+    <script>
+        // Configuração e criação do gráfico
+        fetch('/atletas')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(atleta => atleta.nome);
+                const ouro = data.map(atleta => atleta.ouros);
+                const prata = data.map(atleta => atleta.pratas);
+                const bronze = data.map(atleta => atleta.bronze);
+
+                const ctx = document.getElementById('medalsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Ouros',
+                                data: ouro,
+                                backgroundColor: 'rgba(255, 215, 0, 0.6)'
+                            },
+                            {
+                                label: 'Pratas',
+                                data: prata,
+                                backgroundColor: 'rgba(192, 192, 192, 0.6)'
+                            },
+                            {
+                                label: 'Bronzes',
+                                data: bronze,
+                                backgroundColor: 'rgba(205, 127, 50, 0.6)'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                beginAtZero: true
+                            },
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
