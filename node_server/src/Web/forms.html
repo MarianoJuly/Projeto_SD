@@ -20,17 +20,22 @@
             <label for="modality">Modalidade Olimpica:</label>
             <input type="text" id="modality" name="modality" required>
             
-            <label for="season">Estação Olimpica:</label>
-            <input type="text" id="season" name="season" required>
+            <label for="season">Estação Olímpica:</label>
+            <select id="season" name="season" required>
+                <option value="" disabled selected>Selecione a estação</option>
+                <option value="verao">Verão</option>
+                <option value="inverno">Inverno</option>
+            </select>
+
             
             <label for="gold">Ouros:</label>
-            <input type="number" id="gold" name="gold" required>
+            <input type="number" id="gold" name="gold" value=0 required>
             
             <label for="silver">Pratas:</label>
-            <input type="number" id="silver" name="silver" required>
+            <input type="number" id="silver" name="silver" value=0 required>
             
             <label for="bronze">Bronzes:</label>
-            <input type="number" id="bronze" name="bronze" required>
+            <input type="number" id="bronze" name="bronze" value=0 required>
             
             <label for="organizerEmail">Email para retorno:</label>
             <input type="email" id="organizerEmail" name="organizerEmail" required>

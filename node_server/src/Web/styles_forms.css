@@ -1,12 +1,18 @@
 body {
     font-family: 'Times New Roman', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     padding: 10px;
+    background-image: url('layout2.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain; /* ou "cover", dependendo de como deseja que a imagem se ajuste */
+
 }
 
 .container {
@@ -31,6 +37,17 @@ label {
 }
 
 input,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input,
+select,
 button {
     width: 100%;
     padding: 10px;

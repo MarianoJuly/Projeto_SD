@@ -5,23 +5,23 @@
 document.getElementById('eventForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita o envio do formulário
 
-    let evento = {
+    let atleta = {
         nomeAtleta : document.getElementById('athleteName').value,
         periodoAtividade : document.getElementById('eventDate').value,
         modalidadeOlimpica : document.getElementById('modality').value,
         estacaoOlimpica : document.getElementById('season').value,
-        ouros : document.getElementById('gold').value,
-        pratas : document.getElementById('silver').value,
-        bronze : document.getElementById('bronze').value,
+        ouros : document.getElementById('gold').value === '' ? 0 : document.getElementById('gold').value,
+        pratas : document.getElementById('silver').value === '' ? 0 : document.getElementById('silver').value,
+        bronze : document.getElementById('bronze').value === '' ? 0 : document.getElementById('bronze').value,
         organizador_email : document.getElementById('organizerEmail').value
     };
     
-    if (evento.nome === '' || evento.data === '' || evento.localizacao === '' || evento.nome_organizador === '' || evento.organizador_email === '') {
+    if (atleta.nome === '' || atleta.data === '' || atleta.localizacao === '' || atleta.nome_organizador === '' || atleta.organizador_email === '') {
         alert('Por favor, preencha todos os campos.');
         return;
     }
 
-    if (!validateEmail(evento.organizador_email)) {
+    if (!validateEmail(atleta.organizador_email)) {
         alert('Por favor, insira um email válido.');
         return;
     }
@@ -32,7 +32,7 @@ document.getElementById('eventForm').addEventListener('submit', function(event) 
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(evento)
+        body: JSON.stringify(atleta)
     })
     .then(response => response.text())
     .then(data => {

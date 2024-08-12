@@ -24,6 +24,7 @@ app.get('/atletas', (req, res) => {
 // Criar um metodo que envia email
 app.post('/notify', (req, res) => {
     const novo = convertAtleta(req.body);
+    data.push(novo);
     email.sendEmail(req.body.organizador_email, novo)
     .then(() => res.status(200).send('Novo atleta registrado e email enviado com sucesso'))
     .catch((err) => {
